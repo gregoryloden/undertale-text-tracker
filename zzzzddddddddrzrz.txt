@@ -1,0 +1,74 @@
+	optionon	mousetolerance	10000
+	optionon	variance	5
+	if	==	.mousex	0
+		jump	preidleaftermain
+
+	:preidlebeforemain
+		println	.Pausing until color appears...
+.		println	.Pausing until .mousex == 0...
+	:idlebeforemain
+		if	==	.mousey	0
+			quit
+.		if	==	.mousex	0
+		if	colorat	652	318	192	130	38
+			jump	main
+		pause	50
+	jump	idlebeforemain
+
+	:main
+	println	.Typing
+	call	pressz
+	pause	1000
+	call	pressz
+	call	pressz
+	call	pressz
+	call	pressdown
+	call	pressdown
+	call	pressdown
+	call	pressdown
+	call	pressdown
+	call	pressdown
+	call	pressdown
+	call	pressdown
+	call	pressright
+	call	pressz
+	call	pressright
+	call	pressz
+	println	.Finished typing
+
+	:preidleaftermain
+		println	.Waiting for color to go away...
+.		println	.Waiting until .mousex != 0...
+	:idleaftermain
+		if	==	.mousey	0
+			quit
+.		if	!=	.mousex	0
+		if	not	colorat	652	318	192	130	38
+			jump	preidlebeforemain
+		pause	50
+	jump	idleaftermain
+
+	:pressz
+		press	z
+		pause	20
+		release	z
+		pause	20
+		if	==	.mousey	0
+			quit
+	jumpback
+	:pressdown
+		press	down
+		pause	20
+		release	down
+		pause	20
+		if	==	.mousey	0
+			quit
+	jumpback
+	:pressright
+		press	right
+		pause	20
+		release	right
+		pause	20
+		if	==	.mousey	0
+			quit
+	jumpback

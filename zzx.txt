@@ -1,0 +1,59 @@
+	optionon	mousetolerance	10000
+	if	not	or	input	zz	input	x
+	[
+		println	.You must input "zz" or "x"
+		quit
+	]
+	if	==	.mousex	0
+		println	.Waiting for .mousex != 0...
+	:idlebeforemain
+		if	!=	.mousex	0
+		[
+			println	..mousex != 0, beginning idle
+			jump	idle
+		]
+		pause	50
+	jump	idlebeforemain
+	:premain
+		println	.Unpausing
+	:main
+		if	input	zz
+		[
+			if	==	.mousey	0
+				quit
+			if	!=	.mousex	0
+				jump	preidle
+			press	z
+			pause	15
+			release	z
+			pause	15
+			if	==	.mousey	0
+				quit
+			if	!=	.mousex	0
+				jump	preidle
+			press	z
+			pause	15
+			release	z
+			pause	15
+		]
+		if	input	x
+		[
+			if	==	.mousey	0
+				quit
+			if	!=	.mousex	0
+				jump	preidle
+			press	x
+			pause	20
+			release	x
+			pause	20
+		]
+	jump	main
+	:preidle
+		println	.Pausing
+	:idle
+		if	==	.mousey	0
+			quit
+		if	==	.mousex	0
+			jump	premain
+		pause	50
+	jump	idle
