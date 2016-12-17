@@ -16,6 +16,7 @@ Not included are the exact locations where the strings can be found or who said 
 For some strings that are either completely identical or nearly identical with only differences in pauses or facial expressions, I made guesses as to which strings were used.
 ## Stats
 My playthrough route (names from the Undertale wiki) and corresponding place in the hierarchy:
+
 Save | Ending
 ---- | ------
 GTE1   | Genocide
